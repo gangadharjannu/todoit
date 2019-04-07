@@ -1,0 +1,40 @@
+<mat-toolbar>
+  <span>Register</span>
+</mat-toolbar>
+<mat-card class="register-card">
+  <mat-card-content>
+    <form class="register-form" #registerForm="ngForm">
+      <mat-form-field class="full-width">
+        <mat-label>User Id</mat-label>
+        <input
+          matInput
+          [disabled]="inProgress"
+          [(ngModel)]="user.name"
+          placeholder="Username"
+          name="username"
+        />
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          [disabled]="inProgress"
+          [(ngModel)]="user.password"
+          placeholder="Password"
+          name="password"
+        />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions align="center">
+    <button
+      mat-raised-button
+      (click)="doRegister(); registerForm.reset()"
+      color="primary"
+      [disabled]="inProgress"
+      type="submit"
+    >
+      Register
+    </button>
+  </mat-card-actions>
+</mat-card>

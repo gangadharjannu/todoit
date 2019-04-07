@@ -1,0 +1,45 @@
+<form class="todo-form" #todoForm="ngForm">
+  <mat-form-field class="full-width">
+    <input
+      matInput
+      [(ngModel)]="todoName"
+      name="todoName"
+      (keydown.enter)="addTodo($event); todoForm.reset()"
+      (keydown.esc)="todoForm.reset()"
+      placeholder="What do you want to do today?"
+    />
+  </mat-form-field>
+</form>
+<mat-selection-list #todoList *ngIf="list">
+  <mat-list-option *ngFor="let todo of list" [selected]="todo.completed">
+    {{ todo.name }}
+  </mat-list-option>
+
+  <mat-chip-list>
+    <mat-chip color="primary" selected>Total: {{ list.length }}</mat-chip>
+    <mat-chip
+      >Remaining:
+      {{ list.length - todoList.selectedOptions.selected.length }}</mat-chip
+    >
+    <mat-chip color="accent" selected
+      >Completed: {{ todoList.selectedOptions.selected.length }}</mat-chip
+    >
+  </mat-chip-list>
+  <!-- <mat-button-toggle-group name="todoFilter">
+    <mat-button-toggle value="bold">Bold</mat-button-toggle>
+    <mat-button-toggle value="italic">Italic</mat-button-toggle>
+    <mat-button-toggle value="underline">Underline</mat-button-toggle>
+  </mat-button-toggle-group> -->
+  <!-- <p>
+    Remaining todos:
+    {{ todos.length - todoList.selectedOptions.selected.length }}
+  </p>
+  <p>
+    Completed todos:
+    {{ todoList.selectedOptions.selected.length }}
+  </p>
+  <p>
+    Total todos:
+    {{ todos.length }}
+  </p> -->
+</mat-selection-list>

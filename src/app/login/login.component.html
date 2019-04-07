@@ -1,0 +1,71 @@
+<mat-toolbar>
+  <span>Login</span>
+</mat-toolbar>
+<mat-card class="login-card">
+  <form
+    class="login-form"
+    #loginForm="ngForm"
+    (ngSubmit)="loginForm.form.valid && doLogin(); loginForm.reset()"
+    novalidate
+  >
+    <mat-card-content>
+      <mat-card>
+        <p>Below are the dummy users available to test:</p>
+        <ul>
+          <li>Username: <b>admin</b>, Password: <b>admin</b></li>
+          <li>Username: <b>test</b>, Password: <b>test</b></li>
+          <li>Username: <b>temp</b>, Password: <b>temp</b></li>
+        </ul>
+      </mat-card>
+      <mat-form-field class="full-width">
+        <mat-label>User Id</mat-label>
+        <input
+          matInput
+          #userName="ngModel"
+          [disabled]="inProgress"
+          [(ngModel)]="username"
+          placeholder="Username"
+          name="username"
+          required
+        />
+        <mat-error
+          *ngIf="
+            loginForm.submitted && userName?.invalid && userName?.errors.required
+          "
+        >
+          username is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          #userPassword="ngModel"
+          [disabled]="inProgress"
+          [(ngModel)]="password"
+          placeholder="Password"
+          name="password"
+          required
+        />
+        {{getFormJSON(userPassword)}}
+        <mat-error
+          *ngIf="
+            loginForm.submitted && userPassword?.invalid && userPassword?.errors.required
+          "
+        >
+          password is required
+        </mat-error>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions align="center">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="inProgress"
+      >
+        Login
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

@@ -1,0 +1,9 @@
+mat-form-field {
+  width: 100%;
+}
+::ng-deep mat-pseudo-checkbox.mat-pseudo-checkbox-checked + .mat-list-text {
+  text-decoration: line-through;
+}
+mat-chip-list ::ng-deep .mat-chip-list-wrapper{
+  justify-content: center;
+}

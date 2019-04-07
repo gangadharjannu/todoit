@@ -1,0 +1,8 @@
+{
+  "/login": "http://localhost:4299/api/V1/login",
+  "secure": true,
+  "pathRewrite": {
+    "^/login": ""
+  },
+  "changeOrigin": true
+}

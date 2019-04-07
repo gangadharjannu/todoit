@@ -1,0 +1,13 @@
+<mat-toolbar>
+  <span>Todos</span>
+  <span class="example-spacer"></span>
+  <span flex></span>
+
+  <button mat-button (click)="doLogout()">
+    Logout
+  </button>
+</mat-toolbar>
+
+<mat-card>
+  <ti-todo [list]="todoList$|async" (added)="todoAdded($event)"></ti-todo>
+</mat-card>
