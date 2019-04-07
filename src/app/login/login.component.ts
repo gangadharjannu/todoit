@@ -17,24 +17,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService,
     private toastService: ToastService
-  ) {
-  }
-  getFormJSON(form) {
-    debugger;
-    return JSON.stringify(form, this.getCircularReplacer);
-  }
-  getCircularReplacer() {
-    const seen = new WeakSet();
-    return (key, value) => {
-      if (typeof value === 'object' && value !== null) {
-        if (seen.has(value)) {
-          return;
-        }
-        seen.add(value);
-      }
-      return value;
-    };
-  }
+  ) {}
   ngOnInit() {}
   doLogin() {
     this.inProgress = true;
@@ -58,5 +41,8 @@ export class LoginComponent implements OnInit {
           console.error(error);
         }
       );
+  }
+  doRegister() {
+    this.router.navigate(['/register']);
   }
 }

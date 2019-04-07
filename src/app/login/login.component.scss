@@ -8,11 +8,13 @@
   margin: 0 auto;
   top: 50%;
   transform: translateY(-50%);
-
+  mat-card {
+    margin-bottom: 10px;
+  }
   mat-form-field.full-width {
     width: 100%;
   }
 }
-.example-spacer {
+.spacer {
   flex: 1 1 auto;
 }
